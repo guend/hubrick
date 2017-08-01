@@ -4,24 +4,18 @@ import Firebase
 class FeedInteractor: FeedInteracting {
     
     weak var delegate: FeedInteractorDelegate?
+    private let service: PostService
     
-    // MARK: Business logic
+    // MARK: - Init
+    
+    init(service: PostService = PostService()) {
+        self.service = service
+    }
+    
+    // MARK: - Business logic
 
     func fetchPosts() {
-        
-        let postReference = Database.database().reference(withPath: "post")
-        postReference.observe(.value, with: { [weak self] snapshot in
-            
-            var posts: [Post] = []
-            
-            for item in snapshot.children {
-                guard
-                    let snapshot = item as? DataSnapshot,
-                    let dictionary = snapshot.value as? Dictionary<String, Any> else { return }
-                posts.append(Post(dictionary: dictionary))
-            }
-            
-            self?.delegate?.fetchedPosts(posts)
-        })
+        guard let delegate = delegate else { return }
+        service.posts(completion: delegate.fetchedPosts)
     }
 }

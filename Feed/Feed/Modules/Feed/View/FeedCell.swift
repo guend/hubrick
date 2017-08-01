@@ -22,9 +22,11 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var numberOfCommentsLabel: UILabel!
     @IBOutlet weak var numberOfSharingsLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet private weak var topView: UIView!
     
+    var deleted: Bool = false {
+        didSet {
+            topView.isHidden = !deleted
+        }
+    }
 }

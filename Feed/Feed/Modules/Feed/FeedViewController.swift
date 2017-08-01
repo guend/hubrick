@@ -3,8 +3,6 @@ import Kingfisher
 
 class FeedViewController: UIViewController {
     
-    // MARK: - Constants
-    
     // MARK: - IBOutlets
     
     @IBOutlet weak var tableView: UITableView!
@@ -14,8 +12,6 @@ class FeedViewController: UIViewController {
     var presenter: FeedPresenting?
     var posts: [PostViewModel] = []
     
-    // MARK: - Init
-    
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
@@ -23,8 +19,6 @@ class FeedViewController: UIViewController {
         setupTableView()
         presenter?.viewDidLoad()
     }
-    
-    // MARK: - IBActions
     
     // MARK: - Private
     
@@ -39,7 +33,9 @@ class FeedViewController: UIViewController {
 extension FeedViewController: FeedPresenterViewing {
     func showPosts(_ posts: [PostViewModel]) {
         self.posts = posts
-        tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }
 
@@ -62,6 +58,7 @@ extension FeedViewController: UITableViewDataSource {
         cell.numberOfLikesLabel.text = post.likesCount
         cell.numberOfCommentsLabel.text = post.commentsCount
         cell.numberOfSharingsLabel.text = post.shareCount
+        cell.deleted = post.type == .delete
         
         return cell
     }

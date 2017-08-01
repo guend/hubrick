@@ -18,4 +18,5 @@ struct PostViewModel {
     let likesCount: String
     let commentsCount: String
     let shareCount: String
+    let type: PostType
 }

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2C89A8A9810DF4C091CBB609 /* Pods_FeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD912D87AC6908CE40CECD67 /* Pods_FeedTests.framework */; };
+		D104716D1F31237A00AB44A3 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = D104716C1F31237A00AB44A3 /* Author.swift */; };
+		D104716F1F31239200AB44A3 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = D104716E1F31239200AB44A3 /* Payload.swift */; };
+		D10471711F3123AA00AB44A3 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10471701F3123AA00AB44A3 /* Stats.swift */; };
+		D10471731F3123C100AB44A3 /* ReactionStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10471721F3123C100AB44A3 /* ReactionStats.swift */; };
+		D10471751F3123DC00AB44A3 /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10471741F3123DC00AB44A3 /* PostType.swift */; };
+		D10471781F31240100AB44A3 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10471771F31240100AB44A3 /* PostService.swift */; };
 		D10C17311F30F035005B3BA6 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C172F1F30F035005B3BA6 /* FeedCell.swift */; };
 		D10C17321F30F035005B3BA6 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D10C17301F30F035005B3BA6 /* FeedCell.xib */; };
 		D10C17341F30F9A5005B3BA6 /* UITableViewCell+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C17331F30F9A5005B3BA6 /* UITableViewCell+Register.swift */; };
@@ -45,6 +51,12 @@
 		B074D935D09D333EE5AA3B25 /* Pods-FeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeedTests/Pods-FeedTests.release.xcconfig"; sourceTree = "<group>"; };
 		BD912D87AC6908CE40CECD67 /* Pods_FeedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94EFA6119B1E536D938B962 /* Pods_Feed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D104716C1F31237A00AB44A3 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		D104716E1F31239200AB44A3 /* Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
+		D10471701F3123AA00AB44A3 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		D10471721F3123C100AB44A3 /* ReactionStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionStats.swift; sourceTree = "<group>"; };
+		D10471741F3123DC00AB44A3 /* PostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
+		D10471771F31240100AB44A3 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		D10C172B1F30EFEF005B3BA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D10C172F1F30F035005B3BA6 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		D10C17301F30F035005B3BA6 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
@@ -109,6 +121,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D10471761F3123F400AB44A3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D10471771F31240100AB44A3 /* PostService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		D10C172C1F30EFFC005B3BA6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +141,7 @@
 		D10C17351F30F9AC005B3BA6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D10471761F3123F400AB44A3 /* Services */,
 				D10C173C1F3100AE005B3BA6 /* Models */,
 				D10C17361F30F9B7005B3BA6 /* Extensions */,
 			);
@@ -148,6 +169,11 @@
 			isa = PBXGroup;
 			children = (
 				D10C173D1F3100B8005B3BA6 /* Post.swift */,
+				D104716C1F31237A00AB44A3 /* Author.swift */,
+				D104716E1F31239200AB44A3 /* Payload.swift */,
+				D10471701F3123AA00AB44A3 /* Stats.swift */,
+				D10471721F3123C100AB44A3 /* ReactionStats.swift */,
+				D10471741F3123DC00AB44A3 /* PostType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -441,14 +467,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1DEB98C1F29173C00894F58 /* AppDelegate.swift in Sources */,
+				D10471711F3123AA00AB44A3 /* Stats.swift in Sources */,
+				D10471731F3123C100AB44A3 /* ReactionStats.swift in Sources */,
 				D10C17381F30F9D1005B3BA6 /* ReusableView.swift in Sources */,
 				D12930E81F291919006BFBFE /* FeedContract.swift in Sources */,
 				D10C173E1F3100B8005B3BA6 /* Post.swift in Sources */,
 				D12930EB1F291919006BFBFE /* FeedRouter.swift in Sources */,
+				D10471781F31240100AB44A3 /* PostService.swift in Sources */,
 				D12930EA1F291919006BFBFE /* FeedPresenter.swift in Sources */,
 				D12930EF1F291AD3006BFBFE /* RootRouter.swift in Sources */,
 				D10C17341F30F9A5005B3BA6 /* UITableViewCell+Register.swift in Sources */,
+				D104716F1F31239200AB44A3 /* Payload.swift in Sources */,
 				D10C173B1F30FAE8005B3BA6 /* PostViewModel.swift in Sources */,
+				D10471751F3123DC00AB44A3 /* PostType.swift in Sources */,
+				D104716D1F31237A00AB44A3 /* Author.swift in Sources */,
 				D10C17311F30F035005B3BA6 /* FeedCell.swift in Sources */,
 				D12930EC1F291919006BFBFE /* FeedViewController.swift in Sources */,
 				D12930E91F291919006BFBFE /* FeedInteractor.swift in Sources */,

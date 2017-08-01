@@ -33,7 +33,8 @@ class FeedPresenter: FeedPresenting {
             description: post.payload.plainContentPreview,
             likesCount: String(post.payload.stats.reactionStats.likesCount),
             commentsCount: String(post.payload.stats.commentsCount),
-            shareCount: String(post.payload.stats.reactionStats.shareCount))
+            shareCount: String(post.payload.stats.reactionStats.shareCount),
+            type: post.type)
     }
 }
 
