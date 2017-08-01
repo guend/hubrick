@@ -14,7 +14,7 @@ struct Stats {
     
     init(dictionary: Dictionary<String, Any>) {
         reactionStats = ReactionStats(dictionary: dictionary["reactionStats"] as! Dictionary)
-        guard let commentsStats = dictionary["commentsStats"] as? Dictionary<String, Int> else {
+        guard let commentsStats = dictionary["commentStats"] as? Dictionary<String, Int> else {
             commentsCount = 0
             return
         }

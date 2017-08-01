@@ -18,8 +18,8 @@ struct ReactionStats {
             shareCount = 0
             return
         }
-        likesCount = counts["likesCount"] ?? 0
-        shareCount = counts["shareCount"] ?? 0
+        likesCount = counts["LIKE"] ?? 0
+        shareCount = counts["SHARE"] ?? 0
         
     }
 }
