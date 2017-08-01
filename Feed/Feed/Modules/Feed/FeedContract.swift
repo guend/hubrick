@@ -1,21 +1,23 @@
 import UIKit
 
 protocol FeedPresenting: class {
-    weak var delegate: FeedPresenterDelegate? { get set }
+    weak var view: FeedPresenterViewing? { get set }
     
-    init(interactor: FeedInteracting,
-         router: FeedRouting)
+    func viewDidLoad()
 }
 
-protocol FeedPresenterDelegate: class {
-
+protocol FeedPresenterViewing: class {
+    func showPosts(_ posts: [PostViewModel])
 }
 
 protocol FeedInteracting: class {
     weak var delegate: FeedInteractorDelegate? { get set }
+    
+    func fetchPosts()
 }
 
 protocol FeedInteractorDelegate: class {
+    func fetchedPosts(_ posts: [Post])
 }
 
 protocol FeedRouting: class {

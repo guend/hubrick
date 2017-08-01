@@ -4,7 +4,7 @@ class FeedRouter: FeedRouting {
     weak var viewController: UIViewController?
     
     static func makeModule() -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Feed", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "FeedViewController") as? FeedViewController else {
             fatalError()
         }
@@ -15,7 +15,7 @@ class FeedRouter: FeedRouting {
         
         router.viewController = viewController
         viewController.presenter = presenter
-        presenter.delegate = viewController
+        presenter.view = viewController
         interactor.delegate = presenter
         
         return viewController
